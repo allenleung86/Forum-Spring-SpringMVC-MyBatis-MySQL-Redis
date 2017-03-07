@@ -14,7 +14,6 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-
     <context:component-scan base-package="com.fc"/>
     <mvc:annotation-driven/>
 
@@ -30,8 +29,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-
-    <!--配置拦截器 -->
+    <!--配置拦截器,如果遇到excludedUrls里链接的则不用拦截,如果是其他url,则需要拦截,即需要重定向到登录页面 -->
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/*" />
@@ -51,8 +49,7 @@
                         <value>/forgetPassword.do</value>
                         <value>/afterForgetPassword.do</value>
                         <value>/verify.do</value>
-			<value>/listImage.do</value>
-
+			            <value>/listImage.do</value>
                     </list>
                 </property>
             </bean>
