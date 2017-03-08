@@ -111,7 +111,7 @@ public class PostService {
 
     //点赞后,获取该文章最新的点赞数,点赞项存储在redis中的 set -> pid+":like" 中
     public String clickLike(int pid, int sessionUid) {
-        Jedis jedis = jedisPool.getResource();
+        Jedis jedis = jedisPool.getResource(); //redis获取资源
         //pid被sessionUid点赞
         jedis.sadd(pid+":like", String.valueOf(sessionUid));
         //增加登录用户点赞数
@@ -122,7 +122,7 @@ public class PostService {
         String result = String.valueOf(jedis.scard(pid+":like")); //返回 set 为 pid+":like" 的个数,即指定文章的获赞数
 
         if(jedis!=null){
-            jedisPool.returnResource(jedis);
+            jedisPool.returnResource(jedis); //redis释放资源
         }
         return result;
     }

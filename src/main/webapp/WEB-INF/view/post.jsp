@@ -12,7 +12,6 @@
 <body>
 <%@ include file="header.jsp" %>
 
-
 	<!-- 中间主体板块 -->
 	<div class="main w clearfix">
 
@@ -31,27 +30,25 @@
 						<div class="post-time">编辑于 ${post.publishTime}</div>
 					</div>
 					<div class="other-count">
-						<span class="reply-count"><a href="#">回复 ${post.replyCount}</a></span>&nbsp;
+						<span class="reply-count"><a>回复 ${post.replyCount}</a></span>&nbsp;
                         <c:choose>
                             <c:when test="${sessionScope.uid==null}">
                                 <span class="up-count"><a>赞 ${post.likeCount}</a></span>&nbsp;
                             </c:when>
                             <c:when test="${liked==true}">
-                                <span class="up-count"><a style="color:#2e6da4;">已赞 ${post.likeCount}</a></span>&nbsp;
+                                <span class="up-count"><a>已赞 ${post.likeCount}</a></span>&nbsp;
                             </c:when>
                             <c:when test="${sessionScope.uid!=null}">
-                                <span class="up-count"><a href="#" id="like-button">赞 ${post.likeCount}</a></span>&nbsp;
+                                <span class="up-count"><a href="#" id="like-button" style="color:#2e6da4;">赞 ${post.likeCount}</a></span>&nbsp;
                             </c:when>
                         </c:choose>
-						<span class="scan-count"><a href="#">浏览 ${post.scanCount}</a></span>
+						<span class="scan-count"><a>浏览 ${post.scanCount}</a></span>
 					</div>
 				</div>
 				<div class="post-desc">
 					${post.content}
 				</div>
 			</div>
-
-
 
 			<!-- 帖子回复内容板块 -->
 			<div class="post-reply">
@@ -110,9 +107,7 @@
 				</div>
 			</div>
 
-
-
-			<!-- 回复区，付文本编辑器板块 -->
+			<!-- 回复区，富文本编辑器板块 -->
 			<div id="reply-area" class="post-reply-textarea">
 				<div style="width: 650px;margin: 10px 20px">
 					<form action="reply.do" method="post" enctype="multipart/form-data">
@@ -184,8 +179,6 @@
 		</div>
 	</div>
 
-
-
 <%@ include file="footer.jsp" %>
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/wangEditor.js"></script>
@@ -217,24 +210,34 @@
      editor.config.uploadImgUrl = 'upload.do';
      //配置图片上传到后台的参数名称
      editor.config.uploadImgFileName = 'myFileName';
-
-		
     editor.create();
 
     //点赞按钮处理
     var likeButton = $("#like-button");
-    likeButton.click(function(){
-        $.ajax({
-            type:"GET",
-            url:"ajaxClickLike.do",
-            data:{pid:${post.pid}},
-            success:function(response,status,xhr){
-                likeButton.text("赞 "+response);
-                likeButton.removeAttr("href");
-            }
+    var bindLikeButton = function() {
+        likeButton.click(function() {
+            likeButton.unbind('click'); //需要先禁用按钮（为防止用户重复点击）
+
+            $.ajax({
+                type:"GET",
+                url:"ajaxClickLike.do",
+                data:{pid:${post.pid}},
+                success:function(response,status,xhr){
+                    likeButton.text("已赞 "+response);
+                    likeButton.removeAttr("href");
+                    likeButton.removeAttr("style");
+                    //likeButton.click(function(){console.log("Nothing happen!")});
+                    //likeButton.attr({"id":"like-button1"});
+                },
+                error:function() {
+                    console.log("Ajax error occurs.");
+                    bindLikeButton(); //重新绑定按钮
+                }
+            });
         });
-    });
-    
+    }
+    bindLikeButton();
+
 </script>
 </body>
 </html>

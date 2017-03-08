@@ -71,7 +71,6 @@ public class PostController {
         List<Reply> replyList = replyService.listReply(pid);
 
         //判断用户是否已经点赞
-
         boolean liked = false;
         if(sessionUid!=null){
             liked = postService.getLikeStatus(pid,sessionUid);
