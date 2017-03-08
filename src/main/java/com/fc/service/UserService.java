@@ -49,7 +49,7 @@ public class UserService {
         }
 
         if(jedis!=null){
-            jedisPool.returnResource(jedis);
+            jedisPool.returnResource(jedis); //释放jedis资源
         }
         return user;
     }

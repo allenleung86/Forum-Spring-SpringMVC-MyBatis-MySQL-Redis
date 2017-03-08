@@ -161,14 +161,14 @@ public class UserController {
     }
 
     @RequestMapping("/follow.do")
-    public String follow(int uid,HttpSession session){
+    public String follow(int uid,HttpSession session) {
         int sessionUid = (int) session.getAttribute("uid");
         userService.follow(sessionUid,uid);
         return "forward:toProfile.do";
     }
 
     @RequestMapping("/unfollow.do")
-    public String unfollow(int uid,HttpSession session){
+    public String unfollow(int uid,HttpSession session) {
         int sessionUid = (int) session.getAttribute("uid");
         userService.unfollow(sessionUid,uid);
         return "forward:toProfile.do";

@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="df:war exploded">
-    <output-path>$PROJECT_DIR$/target/df</output-path>
+    <output-path>E:/tomcat_8082/webapps/mySpringForum/</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

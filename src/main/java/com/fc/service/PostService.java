@@ -109,17 +109,17 @@ public class PostService {
         return post;
     }
 
-    //点赞
+    //点赞后,获取该文章最新的点赞数,点赞项存储在redis中的 set -> pid+":like" 中
     public String clickLike(int pid, int sessionUid) {
         Jedis jedis = jedisPool.getResource();
         //pid被sessionUid点赞
         jedis.sadd(pid+":like", String.valueOf(sessionUid));
-        //增加用户获赞数
+        //增加登录用户点赞数
         jedis.hincrBy("vote",sessionUid+"",1);
 
         //插入一条点赞消息
         taskExecutor.execute(new MessageTask(messageMapper,userMapper,postMapper,replyMapper,pid,0,sessionUid, MyConstant.OPERATION_CLICK_LIKE));
-        String result = String.valueOf(jedis.scard(pid+":like"));
+        String result = String.valueOf(jedis.scard(pid+":like")); //返回 set 为 pid+":like" 的个数,即指定文章的获赞数
 
         if(jedis!=null){
             jedisPool.returnResource(jedis);
