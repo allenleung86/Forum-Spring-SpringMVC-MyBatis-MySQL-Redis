@@ -30,6 +30,29 @@ public class LoginController {
     }
 
     /**
+     * 登录(顺便session保存了登录用户编号和用户头像地址)
+     * @param user
+     * @param model
+     * @param session
+     * @return
+     */
+//    @RequestMapping(value = "/login.do",method = RequestMethod.POST)
+    @RequestMapping(value = "/login.do")
+    public String login(User user,Model model,HttpSession session){
+        Map<String,Object> map = loginService.login(user);
+        if(map.get("status").equals("yes")){
+            session.setAttribute("uid",map.get("uid"));
+            session.setAttribute("headUrl",map.get("headUrl"));
+            return "redirect:toMyProfile.do";
+        }else {
+            model.addAttribute("email",user.getEmail());
+            model.addAttribute("error",map.get("error"));
+            return "login";
+        }
+    }
+
+
+    /**
      * 注册
      * @param user
      * @param repassword
@@ -46,28 +69,6 @@ public class LoginController {
             model.addAttribute("register","yes");
             model.addAttribute("email",user.getEmail());
             model.addAttribute("error",result);
-            return "login";
-        }
-    }
-
-
-    /**
-     * 登录
-     * @param user
-     * @param model
-     * @param session
-     * @return
-     */
-    @RequestMapping(value = "/login.do",method = RequestMethod.POST)
-    public String login(User user,Model model,HttpSession session){
-        Map<String,Object> map = loginService.login(user);
-        if(map.get("status").equals("yes")){
-            session.setAttribute("uid",map.get("uid"));
-            session.setAttribute("headUrl",map.get("headUrl"));
-            return "redirect:toMyProfile.do";
-        }else {
-            model.addAttribute("email",user.getEmail());
-            model.addAttribute("error",map.get("error"));
             return "login";
         }
     }

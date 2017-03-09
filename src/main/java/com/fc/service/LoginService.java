@@ -77,17 +77,16 @@ public class LoginService {
 
     //登录
     public Map<String,Object> login(User user) {
-
         Map<String,Object> map = new HashMap<>();
         Integer uid = userMapper.selectUidByEmailAndPassword(user);
-        if(uid==null){
+        if(uid==null){ //登录用户名密码验证
             map.put("status","no");
             map.put("error","用户名或密码错误~");
             return map;
         }
 
         int checkActived = userMapper.selectActived(user);
-        if(checkActived==0){
+        if(checkActived==0){ //验证邮箱是否激活
             map.put("status","no");
             map.put("error","您还没有激活账户哦，请前往邮箱激活~");
             return map;

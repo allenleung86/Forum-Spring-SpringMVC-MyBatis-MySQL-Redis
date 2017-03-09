@@ -42,6 +42,9 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
-
+    <!-- 会话超时配置(单位为分钟) -->
+    <session-config> <!--如果某个会话在一定时间未被访问，则服务器可以扔掉以节约内存-->
+        <session-timeout>1</session-timeout>
+    </session-config>
 
 </web-app>

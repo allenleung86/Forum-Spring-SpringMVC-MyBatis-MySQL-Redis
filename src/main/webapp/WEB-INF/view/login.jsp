@@ -13,7 +13,6 @@
 <body>
 <%@ include file="header.jsp" %>
 
-
 	<!-- 中间主体板块 -->
 	<div class="main w clearfix">
 		<div class="buttons clearfix">
@@ -21,9 +20,12 @@
 			<a href="#" id="register-button" class="unselected"><span class="glyphicon glyphicon-pencil"></span>&nbsp;注册</a>
 		</div>
 		<div class="contents">
+
+			<%-- 登录DIV --%>
 			<div id="login-area">
-				<form action="login.do" method="post">
-					<div class="error-message">${error}</div>
+				<%--<form action="login.do" method="post">--%>
+				<form action="login.do">
+					<div class="error-message">${error}</div> <%-- 错误DIV--%>
 					<div class="email">
 						邮箱&nbsp;
 						<input id="login-email" type="text" name="email" value="${email}" required>
@@ -36,6 +38,8 @@
 					<button type="button" id="forget-password">忘记密码</button>
 				</form>
 			</div>
+
+			<%-- 注册DIV --%>
 			<div id="register-area">
 				<form action="register.do" method="post">
 					<div id="error-message" class="error-message">${error}</div>
@@ -56,10 +60,9 @@
 					</div>
 				</form>
 			</div>
+
 		</div>
 	</div><!-- 主体结束 -->
-
-
 
 <%@ include file="footer.jsp" %>
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
@@ -102,7 +105,6 @@
             registerButton.click();
         }
 
-
 		//输入校验
         //校验邮箱
         $("#email").blur(function() {
@@ -128,8 +130,6 @@
         });
 	});
 
-
 </script>
 </body>
 </html>
-

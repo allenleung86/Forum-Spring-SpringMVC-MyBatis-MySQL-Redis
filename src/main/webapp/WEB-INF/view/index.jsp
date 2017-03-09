@@ -1,5 +1,7 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" import="java.util.*" %>
 
+<% System.out.println("into view/index.jsp"); %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,9 @@
 			<div class="share">
 				<div class="share-left"><span></span>&nbsp;分享与提问</div>
 				<div class="share-right">
-					<a href="toPublish.do"><span class="glyphicon glyphicon-pencil"></span>&nbsp;我要发布</a>
+					<a href="toPublish.do">
+                        <span class="glyphicon glyphicon-pencil"></span>&nbsp;我要发布
+                    </a>
 				</div>
 			</div>
 			<div class="post">

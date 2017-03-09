@@ -739,18 +739,18 @@ CREATE TABLE `topic` (
 -- ----------------------------
 -- Records of topic
 -- ----------------------------
-INSERT INTO `topic` VALUES ('1', 'Java', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('2', 'Python', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('3', '数据结构', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('4', '算法', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('5', '操作系统', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('6', '计算机网络', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('7', '数据库', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('8', '编译原理', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('9', '软件工程', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('10', 'JavaWeb', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('11', 'C', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
-INSERT INTO `topic` VALUES ('12', 'C++', '暂无描述', 'http://www.doublefuck.top/image/b.jpg');
+INSERT INTO `topic` VALUES ('1', 'Java', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('2', 'Python', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('3', '数据结构', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('4', '算法', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('5', '操作系统', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('6', '计算机网络', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('7', '数据库', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('8', '编译原理', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('9', '软件工程', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('10', 'JavaWeb', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('11', 'C', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
+INSERT INTO `topic` VALUES ('12', 'C++', '暂无描述', 'http://okxw7jg6g.bkt.clouddn.com/topic_logo.png');
 
 -- ----------------------------
 -- Table structure for `user`

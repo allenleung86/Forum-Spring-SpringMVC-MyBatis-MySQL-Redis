@@ -11,14 +11,23 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import java.util.List;
 
+/**
+ * @author 890170
+ * @date 2017-03-09 14:55
+ * @description 登录拦截器
+ */
 public class LoginInterceptor extends HandlerInterceptorAdapter{
 
     private List<String> excludedUrls;
 
+    /**
+     * @author 890170
+     * @date 2017-03-09 14:59
+     * @description 预处理(进入action前的处理)
+     */
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
-
         String requestUri = request.getRequestURI();
 
         //如果url在excludedUrls列表中,则不用拦截,否则需要拦截
@@ -37,10 +46,20 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
         }
     }
 
+    /**
+     * @author 890170
+     * @date 2017-03-09 15:00
+     * @description 后处理（调用了Service并返回ModelAndView，但进行页面渲染前调用）
+     */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
     }
 
+    /**
+     * @author 890170
+     * @date 2017-03-09 15:01
+     * @description 返回处理（已经渲染了页面后的处理）
+     */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
     }

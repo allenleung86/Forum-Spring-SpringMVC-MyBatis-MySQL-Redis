@@ -7,8 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/wangEditor.css">
 	<link rel="stylesheet" type="text/css" href="css/base.css">
-	<link rel="stylesheet" type="text/css" href="css/publis
-	h.css">
+	<link rel="stylesheet" type="text/css" href="css/publish.css">
 </head>
 <body>
 <%@ include file="header.jsp" %>
